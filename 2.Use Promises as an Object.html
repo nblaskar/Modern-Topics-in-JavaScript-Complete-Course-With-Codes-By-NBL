@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <title>Tree</title>
+</head>
+    
+<body>
+  <h1>
+       Promises as an Object in JavaScript
+    </h1>
+   <script>
+ /* Use Promises as an Object */
+       
+       //promise produce
+       const myPromis= new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+               const roll=[5,6,7,8];
+               resolve(roll);
+               reject("Communication failed-1");
+           },2000);
+       });
+       const getBioData=(indexData)=>{
+           return new Promise((resolve,reject)=>{
+               setTimeout((indexData)=>{
+                   let biodata={
+                       name: "NBLASKAR",
+                       age:24
+                   }
+                   resolve(`My roll no is ${indexData}. My name is ${biodata.name}. and i am ${biodata.age} Years old`);
+                   reject("Communication failed-2");
+               },2000,indexData)
+           });
+       }
+       
+       //promises consumes
+       myPromis.then((roll)=>{
+           console.log(roll);
+           return getBioData(roll[1]);
+       }).then((result)=>{
+               console.log(result);
+           }).catch((error)=>{
+           console.log(error);
+       }).finally(()=>{
+           console.log('this will show every time');
+       })
+
+   </script>
+    
+</body>
+</html>

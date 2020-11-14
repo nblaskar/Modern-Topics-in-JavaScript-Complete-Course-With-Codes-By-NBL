@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <title>Tree</title>
+</head>
+    
+<body>
+  <h1>
+       Async and Await in JavaScript
+    </h1>
+   <script>
+ /* Use of Async and Await in JavaScript */
+       console.log("Example of Async and Await");
+       async function NBL(){
+           console.log('Inside NBL Function');
+           const response = await fetch('https://api.github.com/users');
+           console.log('Before response');
+           const users= await response.json();
+           console.log('users resolved');
+           return users;
+       }
+       console.log('Before calling NBL');
+       let a = NBL();
+       console.log("After calling NBL");
+       console.log(a);
+       a.then((data)=>{
+           console.log(data);
+       }).catch((e)=>{
+           console.log('Error comes as->', e);
+       });
+       console.log("Last Line of this Program");
+       
+   </script>
+    
+</body>
+</html>

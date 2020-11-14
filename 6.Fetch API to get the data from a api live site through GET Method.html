@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tree</title>
+  </head>
+
+  <body>
+    <h1>Fetch API to get the data from a api live site through GET Method</h1>
+    <script>
+      function getData(code) {
+        console.log("Started getData()");
+        url = "https://api.covid19api.com/summary";
+        fetch(url)
+          .then((response) => {
+            console.log("Inside First then");
+            return response.json();
+          })
+          .then((result) => {
+            console.log("Inside Second then");
+            console.log(result);
+            console.log(result.Countries[`${code}`]);
+            const getCovid = result.Countries[`${code}`];
+            console.log(
+              `The Country->${getCovid.Country} and TotalDeaths=${getCovid.TotalDeaths} and TotalRecovered=${getCovid.TotalRecovered}`
+            );
+          });
+      }
+      console.log("Before Running getData()");
+      getData(76);
+      console.log("After Running getData()");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <title>Promises</title>
+</head>
+    
+<body>
+   <h1>
+       Promises as a constructor in JavaScript
+    </h1>
+
+   <script>
+ /* Use Promises as Constructor */
+       //promises produce
+       const myPromis= new Promise((resolve,reject)=>
+                                   {
+           setTimeout(()=>{
+               const roll=[5,6,7,8];
+               resolve(roll);
+               reject("Communication failed");
+           },2000);
+       });
+      // promises consumes
+       myPromis.then((roll)=>{
+           console.log(roll);
+       }).catch((error)=>{
+           console.log(error);
+       }).finally(()=>{
+           console.log('this will show every time');
+       })
+
+   </script>
+    
+</body>
+</html>

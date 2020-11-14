@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tree</title>
+  </head>
+
+  <body>
+    <h1>Fetch API to get the data from a local txt file through GET Method</h1>
+    <script>
+      function getData() {
+        console.log("Started getData()");
+        url = "nblData.txt";
+        fetch(url)
+          .then((response) => {
+            console.log("Inside First then");
+            return response.text();
+          })
+          .then((result) => {
+            console.log("Inside Second then");
+            console.log(result);
+          });
+      }
+      console.log("Before Running getData()");
+      getData();
+      console.log("After Running getData()");
+    </script>
+  </body>
+</html>

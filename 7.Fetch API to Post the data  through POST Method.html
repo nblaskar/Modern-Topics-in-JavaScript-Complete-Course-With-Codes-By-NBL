@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tree</title>
+  </head>
+
+  <body>
+    <h1>Fetch API to Post the data through POST Method</h1>
+    <script>
+      // data to be sent to the POST request
+      function postData() {
+        console.log("Started postData()");
+        url = "https://jsonplaceholder.typicode.com/posts";
+        data = ' { "userId": 1, "name": "nbl", "age": 24 }';
+        params = {
+          method: "post",
+          body: data,
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        };
+        fetch(url, params)
+          .then((response) => {
+            console.log("Inside First then");
+            return response.json();
+          })
+          .then((result) => {
+            console.log("Inside Second then");
+            console.log(result);
+          });
+      }
+      console.log("Before Running postData()");
+      postData();
+      console.log("After Running postData()");
+    </script>
+  </body>
+</html>
